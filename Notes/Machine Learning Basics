@@ -1,0 +1,63 @@
+Steps:
+1.  Import the Data
+2.  Clean the Data (ex. remove null values, duplicates, etc.)
+3.  Split the Data into Training/Test Sets
+4.  Create a Model
+5.  Train the Model
+6.  Make Predictions
+7.  Evaluate and Improve
+
+
+
+Libraries:
+1.  Numpy - for providing multi-dimensional arrays
+2.  Pandas - provides Dataframes which is like spreadsheets
+3.  MatPlotLib - 2D plotting libraries
+4.  Scikit-Learn - for common algorithms like decision trees and neural networks
+
+
+
+Consider Downloading:
+- Anaconda3 which installs Jupyter and the popular libraries
+- in terminal type "jupyter notebook"
+
+
+
+Importing a Dataset:
+www.kaggle.com - to get .csv datasets to train your AI (you need to sign in before downloading)
+
+import pandas as pd
+dataframe = pd.read_csv('data.csv')
+
+For information about the data:
+dataframe
+dataframe.shape
+dataframe.describe()
+dataframe.values
+
+X = dataframe.drop(columns=['the column you want to delete'])
+Y = dataframe['the column you want to show']
+
+
+
+Using the Scikit-Learn library:
+
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+
+dataframe = pd.read_csv('data.csv')
+
+# input dataset
+X = dataframe.drop(columns=['the output column'])
+
+# output dataset
+Y = dataframe['the output column']
+
+model = DecisionTreeClassifier()
+
+# model.fit takes an input set and an output set
+model.fit(X, Y)
+
+# this will show the model's predictions on the entries of the output set given the input set, can add many predictions
+predictions = model.predict([[#entry from an input set], [#another entry from an input set], ...])
+predictions
